@@ -38,11 +38,10 @@ spec:
       create: true
       passwordHash: $2a$10$oAZaVEa6DCGF9xB4b1dCSu59dTVaYoOMUd7mBzRIcmM5UOJHQu53a
       username: admin
-    ingress:
-      enabled: true
-      hosts:
-        - host: ""
-          paths:
-           - path: "/"
-             pathType: Prefix
+     ports:
+      - protocol: TCP
+        port: 9001
+        targetPort: 9001
+        nodePort: 31000   # dowolny dostępny port NodePort
+     type: NodePort
 
