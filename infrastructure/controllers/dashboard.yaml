@@ -42,6 +42,7 @@ spec:
       enabled: true
       hosts:
         - host: ""
-          path: "/"
-          pathType: Prefix
+          paths:
+           - path: "/"
+             pathType: Prefix
 
