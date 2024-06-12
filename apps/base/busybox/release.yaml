@@ -7,7 +7,7 @@ spec:
   interval: 1m
   chart:
     spec:
-      chart: ./charts/
+      chart: ./charts
       sourceRef:
         kind: GitRepository
         name: flux-system
