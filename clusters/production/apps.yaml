@@ -6,6 +6,9 @@ metadata:
 spec:
   interval: 10m0s
   path: ./apps/production
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
   prune: true
   wait: true
   timeout: 5m0s
