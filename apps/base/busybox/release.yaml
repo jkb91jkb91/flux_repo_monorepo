@@ -8,8 +8,4 @@ spec:
   chart:
     spec:
       chart: ./charts
-      sourceRef:
-        kind: GitRepository
-        name: flux-system
-        namespace: flux-system
       interval: 1m
