@@ -7,7 +7,7 @@ spec:
   interval: 1m
   chart:
     spec:
-      chart: ./charts
+      chart: ./apps/base/busybox/charts
       sourceRef:
         kind: GitRepository
         name: flux-system
