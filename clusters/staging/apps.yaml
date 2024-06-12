@@ -5,10 +5,10 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
+  path: ./apps/staging
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./apps/staging
   prune: true
   wait: true
   timeout: 5m0s
