@@ -1,13 +1,13 @@
 # ONE CLUSTER + 2 Namespaces(staging+production)
 
 
-#1.) Tree  
-#2.) cluster with two namespaces (kustomization prod and kustomization staging)  
-#3.) apps  
+# 1.) Tree  
+# 2.) cluster with two namespaces (kustomization prod and kustomization staging)  
+# 3.) apps  
 
 
 
-#1.) Tree  
+# 1.) Tree  
 
 ```
 ./
@@ -30,7 +30,7 @@
 ```
 
 
-#2.) cluster with two namespaces (kustomization prod and kustomization staging)  
+# 2.) cluster with two namespaces (kustomization prod and kustomization staging)  
 KUSTOMIZATION file pointing to namespace production >>app_prod.yaml  
 IMPORTANT >> path is count from BEGINNING of the repo  
 
@@ -80,7 +80,7 @@ spec:
 ```
 
 
-#3.) apps  
+# 3.) apps  
 
 ```
 ./
@@ -91,4 +91,25 @@ spec:
 │   │   └── kustomization.yaml
 │   └── staging/
 │       └── kustomization.yaml
+```
+Under base we have busybox full Helm Chart  
+We also have to folders with another kustomization files  
+-production/kustomizaton.yaml  
+-staging/kustomization.yaml  
+IMPORTANT >> namespace value WILL BE OVERWRITTEN IN base/busybox by what it in these kustomization files  
+
+```
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: production
+resources:
+  - ../base/busybox
+```
+
+```
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: staging
+resources:
+  - ../base/busybox
 ```
