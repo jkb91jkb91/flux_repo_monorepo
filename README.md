@@ -1,10 +1,13 @@
 # ONE CLUSTER + 2 Namespaces(staging+production)
 
 
+#1.) Tree
+#2.) cluster with two namespaces (kustomization prod and kustomization staging)
+#3.) apps
 
-#1.) clusters/production_and_staging  
-FIRST KUSTOMIZATION FILE  >> apps_prod.yaml    >>> point  path: ./apps/production    <<< Count from main repo  
-SECOND KUSTOMIZATION FILE >> apps_staging.yaml >>> point  path: ./apps/staging       <<< Count from main repo  
+
+
+#1.) Tree  
 
 ```
 ./
@@ -26,7 +29,20 @@ SECOND KUSTOMIZATION FILE >> apps_staging.yaml >>> point  path: ./apps/staging  
 └── README.md
 ```
 
-#KUSTOMIZATION app_prod.yaml
+
+#2.) cluster with two namespaces (kustomization prod and kustomization staging)  
+KUSTOMIZATION file pointing to namespace production >>app_prod.yaml  
+IMPORTANT >> path is count from BEGINNING of the repo  
+
+
+```
+├── clusters/
+│   └── production_and_staging/
+│       ├── flux-system/
+│       ├── apps_prod.yaml
+│       └── apps_staging.yaml
+```
+
 ```
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -44,7 +60,8 @@ spec:
   timeout: 5m0s
 ```
 
-#KUSTOMIZATION app_staging
+KUSTOMIZATION file pointing to namespace staging >> app_prod.yaml  
+IMPORTANT >> path is count from BEGINNING of the repo  
 ```
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -60,4 +77,18 @@ spec:
   prune: true
   wait: true
   timeout: 5m0s
+```
+
+
+#3.) apps  
+
+```
+./
+├── apps/
+│   ├── base/
+│   │   └── busybox/
+│   ├── production/
+│   │   └── kustomization.yaml
+│   └── staging/
+│       └── kustomization.yaml
 ```
