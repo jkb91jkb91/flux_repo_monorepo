@@ -12,5 +12,7 @@ FIRST KUSTOMIZATION FILE  >> apps_prod.yaml    >>> point  path: ./apps/productio
 SECOND KUSTOMIZATION FILE >> apps_staging.yaml >>> point  path: ./apps/staging       <<< Count from main repo  
 
 ```
-./ ├── apps/ │ ├── base/ │ │ └── busybox/ │ ├── production/ │ │ └── kustomization.yaml │ └── staging/ │ └── kustomization.yaml ├── clusters/ │ └── production_and_staging/ │ ├── flux-system/ │ ├── apps_prod.yaml │ └── apps_staging.yaml ├── infrastructure/ │ └── controllers/ │ └── dashboard.yaml
+./ ├── apps/
+   │ ├── base/ │
+     │ └── busybox/ │ ├── production/ │ │ └── kustomization.yaml │ └── staging/ │ └── kustomization.yaml ├── clusters/ │ └── production_and_staging/ │ ├── flux-system/ │ ├── apps_prod.yaml │ └── apps_staging.yaml ├── infrastructure/ │ └── controllers/ │ └── dashboard.yaml
 ```
