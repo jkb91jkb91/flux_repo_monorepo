@@ -2,12 +2,7 @@
 
 
 
-
-# 1
-We have only one cluster that have 2 Kustomization.yaml file
-clusters/production_and_staging
-
-
+#1.) clusters/production_and_staging  
 FIRST KUSTOMIZATION FILE  >> apps_prod.yaml    >>> point  path: ./apps/production    <<< Count from main repo  
 SECOND KUSTOMIZATION FILE >> apps_staging.yaml >>> point  path: ./apps/staging       <<< Count from main repo  
 
@@ -49,7 +44,20 @@ spec:
   timeout: 5m0s
 ```
 
-
+#KUSTOMIZATION app_staging
 ```
-
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: appsstaging
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./apps/staging
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  prune: true
+  wait: true
+  timeout: 5m0s
 ```
