@@ -30,3 +30,26 @@ SECOND KUSTOMIZATION FILE >> apps_staging.yaml >>> point  path: ./apps/staging  
 │       └── dashboard.yaml
 └── README.md
 ```
+
+#KUSTOMIZATION app_prod.yaml
+```
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: appsprod
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./apps/production
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  prune: true
+  wait: true
+  timeout: 5m0s
+```
+
+
+```
+
+```
