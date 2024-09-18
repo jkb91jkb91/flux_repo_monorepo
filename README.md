@@ -4,6 +4,7 @@
 1.) Tree  
 2.) cluster with two namespaces (kustomization prod and kustomization staging)  
 3.) apps  
+4.) flux-system
 
 
 
@@ -21,6 +22,9 @@
 ├── clusters/
 │   └── production_and_staging/
 │       ├── flux-system/
+|           ├──   gotk-components.yaml
+│           ├──   gotk-sync.yaml
+│           └──   kustomization.yaml
 │       ├── apps_prod.yaml
 │       └── apps_staging.yaml
 ├── infrastructure/
@@ -113,3 +117,15 @@ namespace: staging
 resources:
   - ../base/busybox
 ```
+
+# 4 flux-system in the end generation
+
+```
+├── clusters/
+│   └── production_and_staging/
+│       ├── flux-system/
+|           ├──   gotk-components.yaml
+│           ├──   gotk-sync.yaml
+│           └──   kustomization.yaml
+```
+flux bootstrap github --owner=jkb91jkb91 --repository=flux_repo_monorepo --branch=monorepo_one_cluster --path=clusters/production_and_staging--personal  
