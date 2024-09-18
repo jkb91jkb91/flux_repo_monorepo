@@ -10,3 +10,6 @@ clusters/production_and_staging
 
 FIRST KUSTOMIZATION FILE  >> apps_prod.yaml    >>> point  path: ./apps/production    <<< Count from main repo  
 SECOND KUSTOMIZATION FILE >> apps_staging.yaml >>> point  path: ./apps/staging       <<< Count from main repo  
+
+
+repo/ ├── base/ │ ├── deployment.yaml │ ├── kustomization.yaml │ └── service.yaml ├── flux-system/ │ ├── gotk-components.yaml │ ├── gotk-sync.yaml │ └── kustomization.yaml ├── production/ │ └── kustomization.yaml ├── staging/ │ └── kustomization.yaml └── README.md
