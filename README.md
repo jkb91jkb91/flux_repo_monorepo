@@ -23,9 +23,9 @@ kubectl create ns staging
 │   │       ├── release.yaml
 │   │       └── repository.yaml
 │   ├── production/
-│   │   └── kustomization.yaml
+│   │   └── kustomization.yaml         <<<< resources :- ../base/busybox, namespace: production(OVERWRITES)
 │   └── staging/
-│       └── kustomization.yaml
+│       └── kustomization.yaml         <<<< resources :- ../base/busybox, namespace: staging(OVERWRITES)
 ├── clusters/
 │   ├── production/
 │   │   ├── flux-system/
