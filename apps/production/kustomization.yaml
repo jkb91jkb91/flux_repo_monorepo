@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: production
 resources:
   - ../base/busybox
-  - ../base/apache
+  - ../base/grafana_app
