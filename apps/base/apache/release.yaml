@@ -7,7 +7,7 @@ spec:
   interval: 1m
   chart:
     spec:
-      chart: ./apps/base/apache/apache_HR
+      chart: ./apps/base/apache/apache_HR/grafana
       sourceRef:
         kind: GitRepository
         name: flux-system
