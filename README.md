@@ -9,6 +9,7 @@ kind create cluster --name staging --config kind-config-master-worker.yaml
 flux install  
 
 
+# Tree
 
 ```
 ./
@@ -40,4 +41,29 @@ flux install
 └── infrastructure/
     └── controllers/
         └── dashboard.yaml
+```
+
+# Bootstrap staging
+
+flux bootstrap github --owner=jkb91jkb91 --repository=flux_training_delete --path=clusters/staging --branch=TwoClusters_per_TwoNamespaces  --personal  
+
+```
+├── clusters/
+│   └── production/
+│       ├── flux-system/
+│       │   ├── gotk-components.yaml
+│       │   ├── gotk-sync.yaml
+│       │   └── kustomization.yaml
+```
+# Bootstrap production
+
+flux bootstrap github --owner=jkb91jkb91 --repository=flux_training_delete --path=clusters/staging --branch=TwoClusters_per_TwoNamespaces  --personal  
+
+```
+├── clusters/
+│   └── staging/
+│       ├── flux-system/
+│       │   ├── gotk-components.yaml
+│       │   ├── gotk-sync.yaml
+│       │   └── kustomization.yaml
 ```
