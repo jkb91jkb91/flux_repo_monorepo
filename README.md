@@ -1,7 +1,7 @@
 # 2 Clusters and 2 Namespaces
 
 
-# KIND CLUSTERS
+# KIND TWO CLUSTERS
 kind create cluster --name production --config kind-config-master-worker.yaml  
 flux install
 kubectl create ns production
