@@ -78,5 +78,6 @@ CLUSTER PRODUCTION >> kubectl get helmreleases -n production
 
 
 # How to add new chart to base
-
+cd base
+helm pull bitnami/apache  --untar
 
