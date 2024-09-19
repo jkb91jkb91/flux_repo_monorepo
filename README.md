@@ -3,10 +3,12 @@
 
 # KIND CLUSTERS
 kind create cluster --name production --config kind-config-master-worker.yaml  
-flux install  
+flux install
+kubectl create ns production
 
 kind create cluster --name staging --config kind-config-master-worker.yaml  
-flux install  
+flux install
+kubectl create ns staging
 
 
 # Tree
