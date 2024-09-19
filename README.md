@@ -78,7 +78,22 @@ CLUSTER PRODUCTION >> kubectl get helmreleases -n production
 
 
 # How to add new chart to base
-cd base
-helm pull bitnami/apache  --untar
+cd base && mkdir grafana_app
+cd grafana_app && helm create grafana
+cd grafana && helm pull bitnami/grafana --untar
 
-FORCE GETTING DATA FROM GIT >> flux reconcile source git flux-system --namespace=flux-system
+CHANGE production/kustomization.yaml and staging/kustomization.yaml
+```
+./
+├── apps/
+│   ├── base/
+│   │   └── grafana_app/
+│   │       ├── charts/
+│   │       ├── kustomization.yaml     <<<< resources :- release.yaml
+│   │       ├── release.yaml           <<<<
+│   │       └── repository.yaml
+│   ├── production/
+│   │   └── kustomization.yaml         <<<< resources :- ../base/grafana_app, namespace: production(OVERWRITES)
+│   └── staging/
+│       └── kustomization.yaml         <<<< resources :- ../base/grafana_app, namespace: staging(OVERWRITES)
+```
