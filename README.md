@@ -69,3 +69,9 @@ flux bootstrap github --owner=jkb91jkb91 --repository=flux_repo_monorepo --path=
 │       │   ├── gotk-sync.yaml
 │       │   └── kustomization.yaml
 ```
+
+
+# Check Helmreleases
+CLUSTER STAGING >> kubectl get helmreleases -n staging  
+
+CLUSTER PRODUCTION >> kubectl get helmreleases -n production  
