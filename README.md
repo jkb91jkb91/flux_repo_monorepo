@@ -45,7 +45,7 @@ flux install
 
 # Bootstrap staging
 
-flux bootstrap github --owner=jkb91jkb91 --repository=flux_training_delete --path=clusters/staging --branch=TwoClusters_per_TwoNamespaces  --personal  
+flux bootstrap github --owner=jkb91jkb91 --repository=flux_repo_monorepo --path=clusters/staging --branch=TwoClusters_per_TwoNamespaces  --personal  
 
 ```
 ├── clusters/
@@ -57,7 +57,7 @@ flux bootstrap github --owner=jkb91jkb91 --repository=flux_training_delete --pat
 ```
 # Bootstrap production
 
-flux bootstrap github --owner=jkb91jkb91 --repository=flux_training_delete --path=clusters/staging --branch=TwoClusters_per_TwoNamespaces  --personal  
+flux bootstrap github --owner=jkb91jkb91 --repository=flux_repo_monorepo --path=clusters/staging --branch=TwoClusters_per_TwoNamespaces  --personal  
 
 ```
 ├── clusters/
