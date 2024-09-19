@@ -1,6 +1,6 @@
 # ONE CLUSTER + 2 Namespaces(staging+production)
 
-0.) Kind
+0.) Kind  
 1.) Tree  
 2.) cluster with two namespaces (kustomization prod and kustomization staging)  
 3.) apps  
