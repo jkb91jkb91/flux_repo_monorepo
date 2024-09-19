@@ -19,7 +19,7 @@ kubectl create ns staging
 │   ├── base/
 │   │   └── busybox/
 │   │       ├── charts/
-│   │       ├── kustomization.yaml     <<<< resources :- ./release.yaml
+│   │       ├── kustomization.yaml     <<<< resources :- release.yaml
 │   │       ├── release.yaml
 │   │       └── repository.yaml
 │   ├── production/
