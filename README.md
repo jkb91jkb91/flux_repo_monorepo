@@ -1,4 +1,4 @@
-#2 Clusters and 2 Namespaces
+# 2 Clusters and 2 Namespaces
 
 
 # KIND CLUSTERS
