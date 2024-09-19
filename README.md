@@ -81,3 +81,4 @@ CLUSTER PRODUCTION >> kubectl get helmreleases -n production
 cd base
 helm pull bitnami/apache  --untar
 
+FORCE GETTING DATA FROM GIT >> flux reconcile source git flux-system --namespace=flux-system
