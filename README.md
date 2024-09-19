@@ -1,12 +1,16 @@
 # ONE CLUSTER + 2 Namespaces(staging+production)
 
-
+0.) Kind
 1.) Tree  
 2.) cluster with two namespaces (kustomization prod and kustomization staging)  
 3.) apps  
 4.) flux-system
 
 
+# Kind
+kind create cluster --name my-cluster --config kind-config-master-worker.yaml  
+flux install  
+kubectl create ns default  
 
 # 1.) Tree  
 
@@ -16,17 +20,17 @@
 │   ├── base/
 │   │   └── busybox/
 │   ├── production/
-│   │   └── kustomization.yaml
+│   │   └── kustomization.yaml      <<<< resources :- ../base/busybox, namespace: production(OVERWRITES)
 │   └── staging/
-│       └── kustomization.yaml
+│       └── kustomization.yaml      <<<< resources :- ../base/busybox, namespace: staging(OVERWRITES)
 ├── clusters/
 │   └── production_and_staging/
 │       ├── flux-system/
 |           ├──   gotk-components.yaml
 │           ├──   gotk-sync.yaml
 │           └──   kustomization.yaml
-│       ├── apps_prod.yaml
-│       └── apps_staging.yaml
+│       ├── apps_prod.yaml           <<<< KUSTOMIZATION file prod    path=./apps/production
+│       └── apps_staging.yaml        <<<< KUSTOMIZATION file staging path=./apps/staging
 ├── infrastructure/
 │   └── controllers/
 │       └── dashboard.yaml
