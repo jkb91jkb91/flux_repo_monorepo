@@ -32,13 +32,13 @@ kubectl create ns staging
 │   │   │   ├── gotk-components.yaml
 │   │   │   ├── gotk-sync.yaml
 │   │   │   └── kustomization.yaml
-│   │   └── apps.yaml
+│   │   └── apps.yaml                   <<<< KUSTOMIZATION FILE path=./apps/production
 │   └── staging/
 │       ├── flux-system/
 │       │   ├── gotk-components.yaml
 │       │   ├── gotk-sync.yaml
 │       │   └── kustomization.yaml
-│       ├── apps.yaml
+│       ├── apps.yaml                   <<<< KUSTOMIZATION FILE path=./apps/staging
 │       └── infra-controllers.yaml
 └── infrastructure/
     └── controllers/
