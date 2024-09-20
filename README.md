@@ -3,11 +3,11 @@
 
 # KIND TWO CLUSTERS
 kind create cluster --name production --config kind-config-master-worker.yaml  
-flux install  
+~~flux install~~    >>> NOT NEEDED IF BOOTSTRAP WILL BE LATER LIKE IN THIS CASE
 kubectl create ns production
 
 kind create cluster --name staging --config kind-config-master-worker.yaml  
-flux install  
+~~flux install~~   >>> NOT NEEDED IF BOOTSTRAP WILL BE LATER LIKE IN THIS CASE
 kubectl create ns staging
 
 
