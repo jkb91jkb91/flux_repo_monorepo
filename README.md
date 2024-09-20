@@ -1,4 +1,4 @@
-# 2 Clusters and 2 Namespaces
+# 2 Clusters and 2 Namespaces (Helm Charts(busybox,grafana) + common manifests(pod,service))
 
 
 # KIND TWO CLUSTERS
@@ -77,7 +77,7 @@ CLUSTER STAGING >> kubectl get helmreleases -n staging
 CLUSTER PRODUCTION >> kubectl get helmreleases -n production  
 
 
-# How to add new chart to base
+# How to add new helm chart to base
 cd base && mkdir grafana_app
 cd grafana_app && helm create grafana
 cd grafana && helm pull bitnami/grafana --untar
@@ -92,6 +92,23 @@ CHANGE production/kustomization.yaml and staging/kustomization.yaml
 │   │       ├── kustomization.yaml     <<<< resources :- release.yaml
 │   │       ├── release.yaml           <<<<
 │   │       └── repository.yaml
+│   ├── production/
+│   │   └── kustomization.yaml         <<<< resources :- ../base/grafana_app, namespace: production(OVERWRITES)
+│   └── staging/
+│       └── kustomization.yaml         <<<< resources :- ../base/grafana_app, namespace: staging(OVERWRITES)
+```
+
+# How to add new app based on manifests to base
+cd base && mkdir apache
+
+```
+./
+├── apps/
+│   ├── base/
+│   │   └── apache/
+│   │       ├── kustomization.yaml     <<<< resources :- release.yaml
+│   │       ├── deployment.yaml           <<<<
+│   │       └── service.yaml
 │   ├── production/
 │   │   └── kustomization.yaml         <<<< resources :- ../base/grafana_app, namespace: production(OVERWRITES)
 │   └── staging/
