@@ -110,7 +110,7 @@ cd base && mkdir apache
 │   │       ├── deployment.yaml        
 │   │       └── service.yaml
 │   ├── production/
-│   │   └── kustomization.yaml         <<<< resources :- ../base/grafana_app, namespace: production(OVERWRITES)
+│   │   └── kustomization.yaml         <<<< resources :- ../base/apache, namespace: production(OVERWRITES)
 │   └── staging/
-│       └── kustomization.yaml         <<<< resources :- ../base/grafana_app, namespace: staging(OVERWRITES)
+│       └── kustomization.yaml         <<<< resources :- ../base/apache, namespace: staging(OVERWRITES)
 ```
