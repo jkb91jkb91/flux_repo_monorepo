@@ -106,8 +106,8 @@ cd base && mkdir apache
 ├── apps/
 │   ├── base/
 │   │   └── apache/
-│   │       ├── kustomization.yaml     <<<< resources :- release.yaml
-│   │       ├── deployment.yaml           <<<<
+│   │       ├── kustomization.yaml     <<<< resources: - deployment.yaml, - service.yaml
+│   │       ├── deployment.yaml        
 │   │       └── service.yaml
 │   ├── production/
 │   │   └── kustomization.yaml         <<<< resources :- ../base/grafana_app, namespace: production(OVERWRITES)
