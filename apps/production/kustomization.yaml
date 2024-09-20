@@ -4,3 +4,4 @@ namespace: production
 resources:
   - ../base/busybox
   - ../base/grafana_app
+  - ../base/apache
