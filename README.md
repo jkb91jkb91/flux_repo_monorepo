@@ -7,6 +7,19 @@
 4.) flux-system  
 5.) Debugging
 
+# IMPORTANT LATE
+While doing this command
+```
+flux bootstrap github --owner=jkb91jkb91 --repository=flux_repo_monorepo --branch=monorepo_one_cluster --path=clusters/production_and_staging --personal  
+
+```
+This is important >>> 
+```
+--path=clusters/production_and_staging
+```
+This not only means flux-system will be created under this path BUT MOST IMPORATANT IS THAT HERE flux will look for Kustomization files  
+apps_prod.yaml >>> kustomization   and GitRepository  
+apps_staging.yaml >> kustomization and GitRepository  
 
 # Kind One Cluster
 kind create cluster --name my-cluster --config kind-config-master-worker.yaml  
