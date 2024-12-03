@@ -6,8 +6,8 @@
 3.) apps  
 4.) flux-system  
 5.) Debugging  
-6.) Add new Kustomization to clusters/production_and_staging and follow by path       <<< whole folder  
-6.) Add new Kustomization to clusters/production_and_staging  and follow by resources <<< one file  
+6.) Add new Kustomization(infrastructure/controllers) to clusters/production_and_staging and follow by path       <<< whole folder  
+7.) Add new Kustomization(infrastructure/controllers) to clusters/production_and_staging  and follow by resources <<< one file  
 
 # IMPORTANT INFO
 
@@ -190,9 +190,11 @@ kubectl replace --raw "/api/v1/namespaces/flux-system/finalize" -f flux-system.j
 kubectl delete namespace flux-system --force --grace-period=0
 
 ```
-# 6 Add infrastructure follow to Flux  
+# 6 Add new Kustomization(infrastructure/controllers) to clusters/production_and_staging and follow by path       <<< whole folder  
+Dodajesz clusters/production_and_staging/apps_kustomization.yaml   
+Dodajesz infrastructure/controllers/dashboard.yaml  
 
-path >> oznacza sciezke jaka ma byc sledzona tutaj  
+path >> oznacza sciezke jaka ma byc sledzona tutaj  # path jest wzgledny od poczatku repo
 ```
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -215,3 +217,16 @@ spec:
 flux reconcile source git flux-system -n flux-system
 ```
 
+# 7 Add new Kustomization(infrastructure/controllers) to clusters/production_and_staging  and follow by resources <<< one fil
+Dodajesz clusters/production_and_staging/apps_kustomization.yaml   
+Dodajesz infrastructure/controllers/dashboard.yaml   
+
+resource >> oznacza sledzony konkretny plik # resource jest z wzgledny od pliku w przeciwienstwie do path  
+
+```
+
+```
+
+```
+flux reconcile source git flux-system -n flux-system
+```
