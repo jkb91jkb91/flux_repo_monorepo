@@ -11,7 +11,8 @@
 # Kind One Cluster
 kind create cluster --name my-cluster --config kind-config-master-worker.yaml  
 flux install  
-kubectl create ns production
+IMPORTANT >>
+kubectl create ns production  
 kubectl create ns staging  
 
 # 1.) Tree  
