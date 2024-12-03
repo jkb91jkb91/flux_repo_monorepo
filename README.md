@@ -8,8 +8,9 @@
 5.) Debugging
 6.) Add infrastructure to flux  
 
-# IMPORTANT LATE
-While doing this command
+# IMPORTANT INFO
+
+1.) While doing this command
 ```
 flux bootstrap github --owner=jkb91jkb91 --repository=flux_repo_monorepo --branch=monorepo_one_cluster --path=clusters/production_and_staging --personal  
 
@@ -25,7 +26,12 @@ apps_staging.yaml >> kustomization and GitRepository
 Let's say you want to add another file here like:
 apps_kustomization.yaml  >> You have to only add this file here . NOT UNDER flux-system/kustomization.yaml << you dont need do anything here.  
 
-# Kind One Cluster
+2.) path vs infrastructure
+Zwroc uwage ze:
+path >> jest wzgledne WZGLEDEM POCZATKU REPOZYTORIUM w kustomization  
+resources >> jest wzgledne wzgledem pliku Kustomization  
+
+# 0 Kind One Cluster
 kind create cluster --name my-cluster --config kind-config-master-worker.yaml  
 flux install  
 IMPORTANT >>
