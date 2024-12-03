@@ -5,6 +5,7 @@
 2.) cluster with two namespaces (kustomization prod and kustomization staging)  
 3.) apps  
 4.) flux-system
+5.) Debugging
 
 
 # Kind One Cluster
@@ -134,3 +135,13 @@ resources:
 │           └──   kustomization.yaml
 ```
 flux bootstrap github --owner=jkb91jkb91 --repository=flux_repo_monorepo --branch=monorepo_one_cluster --path=clusters/production_and_staging--personal  
+
+
+# 5 Debugging  
+```
+
+kubectl logs -n flux-system deployment/flux-controller
+kubectl logs -n flux-system deployment/helm-controller
+kubectl logs -n flux-system deployment/source-controller
+
+```
