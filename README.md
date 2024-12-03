@@ -157,5 +157,6 @@ kubectl get namespace flux-system -o json > flux-system.json
 
 kubectl replace --raw "/api/v1/namespaces/flux-system/finalize" -f flux-system.json
 
+kubectl delete namespace flux-system --force --grace-period=0
 
 ```
