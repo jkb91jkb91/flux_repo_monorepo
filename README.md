@@ -160,6 +160,11 @@ kubectl logs -n flux-system deployment/source-controller
 
 ```
 
+Pobranie zmian z repo szbkie
+```
+flux reconcile source git flux-system -n flux-system
+```
+
 Delete flux-system
 ```
 kubectl get namespace flux-system -o json > flux-system.json
