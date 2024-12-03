@@ -5,8 +5,9 @@
 2.) cluster with two namespaces (kustomization prod and kustomization staging)  
 3.) apps  
 4.) flux-system  
-5.) Debugging
-6.) Add infrastructure to flux  
+5.) Debugging  
+6.) Add new Kustomization to clusters/production_and_staging and follow by path       <<< whole folder  
+6.) Add new Kustomization to clusters/production_and_staging  and follow by resources <<< one file  
 
 # IMPORTANT INFO
 
