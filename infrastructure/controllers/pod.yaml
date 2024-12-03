@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: just-pod
+  namespace: default
+spec:
+  containers:
+    - name: dashboard-container
+      image: nginx:1.21  # Możesz podać inny obraz, zależnie od Twoich potrzeb
+      ports:
+        - containerPort: 80
