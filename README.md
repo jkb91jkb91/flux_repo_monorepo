@@ -6,6 +6,7 @@
 3.) apps  
 4.) flux-system  
 5.) Debugging
+6.) Add infrastructure to flux  
 
 # IMPORTANT LATE
 While doing this command
@@ -20,6 +21,9 @@ This is important >>>
 This not only means flux-system will be created under this path BUT MOST IMPORATANT IS THAT HERE flux will look for Kustomization files  
 apps_prod.yaml >>> kustomization   and GitRepository  
 apps_staging.yaml >> kustomization and GitRepository  
+
+Let's say you want to add another file here like:
+apps_kustomization.yaml  >> You have to only add this file here . NOT UNDER flux-system/kustomization.yaml << you dont need do anything here.  
 
 # Kind One Cluster
 kind create cluster --name my-cluster --config kind-config-master-worker.yaml  
@@ -179,3 +183,28 @@ kubectl replace --raw "/api/v1/namespaces/flux-system/finalize" -f flux-system.j
 kubectl delete namespace flux-system --force --grace-period=0
 
 ```
+# 6 Add infrastructure follow to Flux  
+
+path >> oznacza sciezke jaka ma byc sledzona tutaj  
+```
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: dashboard-kustomization
+  namespace: flux-system
+spec:
+  interval: 5m
+  path: ./infrastructure/controllers
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  prune: true
+  wait: true
+  timeout: 5m0s
+```
+
+
+```
+flux reconcile source git flux-system -n flux-system
+```
+
