@@ -114,3 +114,27 @@ cd base && mkdir apache
 │   └── staging/
 │       └── kustomization.yaml         <<<< resources :- ../base/apache, namespace: staging(OVERWRITES)
 ```
+
+#  Debugging  
+```
+
+kubectl logs -n flux-system deployment/flux-controller
+kubectl logs -n flux-system deployment/helm-controller
+kubectl logs -n flux-system deployment/source-controller
+
+```
+
+Delete flux-system
+```
+kubectl get namespace flux-system -o json > flux-system.json
+
+
+"finalizers": [
+    "kubernetes"
+]
+
+kubectl replace --raw "/api/v1/namespaces/flux-system/finalize" -f flux-system.json
+
+kubectl delete namespace flux-system --force --grace-period=0
+
+```
