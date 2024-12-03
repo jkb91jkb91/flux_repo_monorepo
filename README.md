@@ -212,7 +212,6 @@ spec:
   timeout: 5m0s
 ```
 
-
 ```
 flux reconcile source git flux-system -n flux-system
 ```
@@ -224,7 +223,20 @@ Dodajesz infrastructure/controllers/dashboard.yaml
 resource >> oznacza sledzony konkretny plik # resource jest z wzgledny od pliku w przeciwienstwie do path  
 
 ```
-
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: single-kustomization
+  namespace: flux-system
+spec:
+  interval: 5m
+   - ../infrastructure/controllers/pod.yaml
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  prune: true
+  wait: true
+  timeout: 5m0s
 ```
 
 ```
